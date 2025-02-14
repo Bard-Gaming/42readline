@@ -86,7 +86,7 @@ static rl_token_t *get_current_token(rl_lexer_t *lexer)
 ** lexer hasn't been initialized or if
 ** the lexer has reached the end of its source.
 */
-rl_token_t *rl_lexer_get_token()
+rl_token_t *rl_lexer_get_token(void)
 {
     rl_lexer_t *lexer = rl_lexer_get_lexer();
     rl_token_t *token;
