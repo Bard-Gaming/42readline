@@ -10,12 +10,11 @@
 CC = gcc
 CFLAGS =
 
-NAME = lib42readline.a
+NAME = libreadline.a
 
 INCLUDE_DIRS = -I./include
 
-SRC_FILES = src/lexer/rl_lexer.c					\
-			src/lexer/rl_lexer_get_token.c			\
+SRC_FILES =	src/readline.c						\
 
 OBJ_FILES = $(notdir $(SRC_FILES:%.c=%.o))
 

@@ -6,17 +6,19 @@
 */
 
 #include <readline/lexer.h>
+#include <readline/token.h>
 #include <stdio.h>
 
 
 int main(void)
 {
-    rl_token_t *current_token;
+    rl_token_t *token;
 
-    rl_lexer_set("   Well hello   \"string test here!\"  there   haha   ");
-    current_token = rl_lexer_get_token();
-    while (current_token != NULL) {
-        printf("%.*s\n", (int)current_token->length, current_token->start);
-        current_token = rl_lexer_get_token();
+    rl_lexer_set_source(stdin);
+    token = rl_lexer_get_token();
+    while (token != NULL) {
+        rl_token_print(token);
+        token = rl_lexer_get_token();
     }
+    return 0;
 }
