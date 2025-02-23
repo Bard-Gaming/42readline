@@ -25,11 +25,13 @@ use the ``debug`` rule:
 ```bash
 make debug
 ```
-
-Unit tests can be run using the ``tests_run`` rule:
+This project uses the address sanitizer to ensure no
+memory leaks are produced. To compile the library with
+the address sanitizer enabled, please use the
+``sanitize`` rule:
 
 ```bash
-make tests_run
+make sanitize
 ```
 
 When you're done, you can use the ``clean`` rule
