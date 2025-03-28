@@ -1,4 +1,4 @@
-# 42readline-lib
+# 42readline
 
 ## Project Description
 This library is used for the [42sh](https://github.com/Bard-Gaming/42sh)
