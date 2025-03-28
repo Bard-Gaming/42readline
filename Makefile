@@ -15,10 +15,12 @@ NAME = libreadline.a
 INCLUDE_DIRS = -I./include
 
 SRC_FILES =	src/readline.c						\
+			src/rl_string_add_char.c			\
+			src/rl_string_empty.c				\
 
 OBJ_FILES = $(notdir $(SRC_FILES:%.c=%.o))
 
-.PHONY = all debug clean fclean re
+.PHONY = all debug sanitize clean fclean re
 
 all: $(NAME)
 
@@ -28,6 +30,9 @@ $(NAME):
 
 debug: CFLAGS += -ggdb -Wall -Wextra
 debug: fclean $(NAME)
+
+sanitize: CFLAGS += -g -static-libasan -fsanitize=address
+sanitize: fclean $(NAME)
 
 clean:
 	@rm -f $(OBJ_FILES)

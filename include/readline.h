@@ -7,7 +7,6 @@
 
 #ifndef LIB_READLINE_H
     #define LIB_READLINE_H
-    #include <stdio.h>
 
 
 /*
@@ -19,7 +18,7 @@
 ** user. If an error occurs, NULL is returned
 ** instead.
 */
-char *readline(FILE *stream);
+char *readline(int fd);
 
 
 #endif
