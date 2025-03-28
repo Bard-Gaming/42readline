@@ -18,14 +18,16 @@ SRC_FILES =	src/readline.c						\
 			src/rl_string_add_char.c			\
 			src/rl_string_empty.c				\
 
-OBJ_FILES = $(notdir $(SRC_FILES:%.c=%.o))
+OBJ_FILES = $(SRC_FILES:%.c=%.o)
 
 .PHONY = all debug sanitize clean fclean re
 
 all: $(NAME)
 
-$(NAME):
-	@$(CC) -c $(SRC_FILES) $(CFLAGS) $(INCLUDE_DIRS)
+%.o: %.c
+	@$(CC) -c $< $(INCLUDE_DIRS) $(CFLAGS) -o $@
+
+$(NAME): $(OBJ_FILES)
 	@ar rc $(NAME) $(OBJ_FILES)
 
 debug: CFLAGS += -ggdb -Wall -Wextra
