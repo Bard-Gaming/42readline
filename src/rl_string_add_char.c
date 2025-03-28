@@ -33,7 +33,7 @@ bool grow_buffer(string_buffer_t *buffer)
 ** Adds a char to the string buffer,
 ** increasing its size when needed.
 */
-bool rl_sting_add_char(string_buffer_t *buffer, char c)
+bool rl_string_add_char(string_buffer_t *buffer, char c)
 {
     if (buffer->count - 1 == buffer->capacity)
         if (!grow_buffer(buffer))
