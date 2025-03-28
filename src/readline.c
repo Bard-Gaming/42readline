@@ -29,6 +29,8 @@ char *readline(int fd)
 
     rl_string_empty(&buffer);
     read_len = read(fd, &input, 1);
+    if (read_len <= 0)
+        return NULL;
     while (should_continue(fd, read_len, input)) {
         if (!rl_string_add_char(&buffer, input))
             return NULL;
