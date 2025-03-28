@@ -35,7 +35,7 @@ bool grow_buffer(string_buffer_t *buffer)
 */
 bool rl_string_add_char(string_buffer_t *buffer, char c)
 {
-    if (buffer->count - 1 == buffer->capacity)
+    if (buffer->count + 1 >= buffer->capacity)
         if (!grow_buffer(buffer))
             return false;
     buffer->data[buffer->count] = c;
