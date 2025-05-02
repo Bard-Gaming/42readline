@@ -44,6 +44,8 @@ char *rl_readline_tty(int fd, const char *prompt)
     if (read_len <= 0 || input == CHAR_EOT)
         return user_end(&tty);
     while (read_len > 0 && input != '\n') {
+        if (rl_buffer_is_tty_end(input))
+            return user_end(&tty);
         if (rl_handle_control_chars(&input, &read_len, fd))
             continue;
         rl_buffer_add_char(input);

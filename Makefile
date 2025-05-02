@@ -21,6 +21,7 @@ SRC_FILES =	src/readline.c								\
 			src/buffer/rl_buffer_empty.c				\
 			src/buffer/rl_buffer_get.c					\
 			src/buffer/rl_buffer_get_data.c				\
+			src/buffer/rl_buffer_is_tty_end.c			\
 			src/buffer/rl_buffer_print.c				\
 			src/buffer/rl_buffer_rm_char.c				\
 			src/buffer/rl_buffer_update_prompt.c		\
