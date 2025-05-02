@@ -26,6 +26,8 @@ SRC_FILES =	src/readline.c								\
 			src/buffer/rl_buffer_update_prompt.c		\
 			src/internal/rl_disable_canonical_mode.c	\
 			src/internal/rl_handle_control_chars.c		\
+			src/internal/rl_readline_file.c				\
+			src/internal/rl_readline_tty.c				\
 			src/internal/rl_restore_canonical_mode.c	\
 			src/internal/rl_state_get.c					\
 

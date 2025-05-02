@@ -26,6 +26,9 @@ bool rl_handle_control_chars(char *input, ssize_t *read_len, int fd);
 void rl_disable_canonical_mode(int fd, struct termios *original);
 void rl_restore_canonical_mode(struct termios *original);
 
+// Readline functions:
+char *rl_readline_tty(int fd, const char *prompt);
+char *rl_readline_file(int fd);
 
 
 #endif
