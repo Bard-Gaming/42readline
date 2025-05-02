@@ -22,6 +22,11 @@ SRC_FILES =	src/readline.c								\
 			src/buffer/rl_buffer_get.c					\
 			src/buffer/rl_buffer_get_data.c				\
 			src/buffer/rl_buffer_print.c				\
+			src/buffer/rl_buffer_rm_char.c				\
+			src/buffer/rl_buffer_update_prompt.c		\
+			src/internal/rl_disable_canonical_mode.c	\
+			src/internal/rl_handle_control_chars.c		\
+			src/internal/rl_restore_canonical_mode.c	\
 			src/internal/rl_state_get.c					\
 
 OBJ_FILES = $(SRC_FILES:%.c=%.o)

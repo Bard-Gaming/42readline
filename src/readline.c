@@ -13,17 +13,13 @@
 #include <unistd.h>
 
 
-
 static bool should_continue(int fd, ssize_t read_len, char c)
 {
     if (read_len < 0)
         return false;
     if (isatty(fd) && c == '\n')
         return false;
-    if (read_len != 0) {
-        return true;
-    }
-    return false;
+    return read_len != 0;
 }
 
 static char *error(void)
@@ -37,32 +33,34 @@ static char *error(void)
 ** store the first state of the line
 ** Disable canonical mode
 */
-static void setup_readline(struct termios *original)
+static void setup_readline(int fd, struct termios *tty, const char *prompt)
 {
     rl_buffer_empty();
+    rl_buffer_update_prompt(prompt);
     *rl_state_get() = true;
-    disable_canonical_mode(original);
+    rl_disable_canonical_mode(fd, tty);
 }
 
 char *readline(int fd, const char *prompt)
 {
+    struct termios tty;
     ssize_t read_len;
     char input;
-    struct termios original;
 
-    setup_readline(&original);
+    setup_readline(fd, &tty, prompt);
+    rl_buffer_print(fd);
     read_len = read(fd, &input, 1);
     if (read_len <= 0)
         return error();
     while (should_continue(fd, read_len, input)) {
-        if (handle_special_chars(&input, &read_len, fd))
+        if (rl_handle_control_chars(&input, &read_len, fd))
             continue;
-        if (!rl_buffer_add_char(input))
-            return error();
-        rl_buffer_print(fd, prompt);
+        rl_buffer_add_char(input);
+        rl_buffer_print(fd);
         read_len = read(fd, &input, 1);
     }
+    write(fd, "\n", 1);
     *rl_state_get() = false;
-    restore_terminal_mode(&original);
+    rl_restore_canonical_mode(&tty);
     return rl_buffer_get_data();
 }

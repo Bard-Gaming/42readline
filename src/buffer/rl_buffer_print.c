@@ -17,12 +17,13 @@
 ** This function should be called after every
 ** buffer update.
 */
-void rl_buffer_print(int fd, const char *prompt)
+void rl_buffer_print(int fd)
 {
     string_buffer_t *buffer = rl_buffer_get();
     size_t to_left;
 
     write(fd, CLEAR_LINE, strlen(CLEAR_LINE));
+    write(fd, buffer->prompt, strlen(buffer->prompt));
     if (buffer->data)
         write(fd, buffer->data, buffer->count);
     if (buffer->count <= buffer->arrow_index)
