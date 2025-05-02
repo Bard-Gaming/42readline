@@ -19,7 +19,7 @@
 ** user. If an error occurs, NULL is returned
 ** instead.
 */
-char *readline(int fd);
+char *readline(int fd, const char *prompt);
 
 /*
 ** Determines whether or not input is being
