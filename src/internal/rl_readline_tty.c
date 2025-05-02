@@ -35,9 +35,9 @@ char *rl_readline_tty(int fd, const char *prompt)
 
     setup_readline(fd, &tty, prompt);
     read_len = read(fd, &input, 1);
-    if (read_len <= 0)
+    if (read_len <= 0 || input == CHAR_EOT)
         return NULL;
-    while (read_len > 0 && input != '\n' && input != CHAR_EOT) {
+    while (read_len > 0 && input != '\n') {
         if (rl_handle_control_chars(&input, &read_len, fd))
             continue;
         rl_buffer_add_char(input);
