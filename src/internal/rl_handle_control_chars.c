@@ -50,10 +50,8 @@ static void handle_arrows_delete(char *input, ssize_t *read_len, int fd)
 ** an error, as it usually means the given
 ** character is not a control char.
 */
-#include <stdio.h>
 bool rl_handle_control_chars(char *input, ssize_t *read_len, int fd)
 {
-    printf("char: %hhu\n", *input);
     switch (*input) {
     case CHAR_DEL:
         rl_buffer_rm_char();
