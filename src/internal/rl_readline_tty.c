@@ -23,6 +23,12 @@ static void setup_readline(int fd, struct termios *tty, const char *prompt)
     rl_buffer_print(fd);
 }
 
+static char *user_end(struct termios *tty)
+{
+    rl_restore_canonical_mode(tty);
+    return NULL;
+}
+
 /*
 ** Readline function for an interactive
 ** file descriptor.
@@ -36,7 +42,7 @@ char *rl_readline_tty(int fd, const char *prompt)
     setup_readline(fd, &tty, prompt);
     read_len = read(fd, &input, 1);
     if (read_len <= 0 || input == CHAR_EOT)
-        return NULL;
+        return user_end(&tty);
     while (read_len > 0 && input != '\n') {
         if (rl_handle_control_chars(&input, &read_len, fd))
             continue;
