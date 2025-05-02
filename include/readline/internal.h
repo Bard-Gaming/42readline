@@ -13,6 +13,8 @@
     #include <unistd.h>
 
     #define CHAR_DEL 127
+    #define CHAR_EOT 4
+
     #define MIN(a, b) (a < b ? a : b)
     #define MAX(a, b) (a > b ? a : b)
     #define CLAMP(lower, value, upper) MIN(MAX(lower, value), upper)
