@@ -10,6 +10,7 @@
 #include <readline/internal.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 /*
@@ -60,4 +61,20 @@ void rl_buffer_autocomplete(void)
     for (size_t i = word_len; autocompletion[i] != '\0'; i++)
         rl_buffer_add_char(autocompletion[i]);
     free(autocompletion);
+}
+
+/*
+** Long autocompletion.
+** This doesn't actually autocomplete anything,
+** but prints all possible autocompletions.
+*/
+void rl_buffer_autocomplete_long(void)
+{
+    string_buffer_t *buffer = rl_buffer_get();
+    size_t word_start = get_word_start(buffer->data, buffer->arrow_index);
+    char *word = duplicate_word(buffer->data + word_start);
+
+    putchar('\n');
+    buffer->autocomplete_long(word);
+    free(word);
 }

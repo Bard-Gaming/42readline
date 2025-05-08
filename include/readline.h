@@ -11,6 +11,7 @@
 
 
 typedef char *(*autocomplete_fnc_t)(const char *);
+typedef void (*long_autocomplete_fnc_t)(const char *);
 
 
 /*
@@ -46,7 +47,8 @@ void readline_free(void);
 ** All parameters are nullable, and will take
 ** default values when NULL.
 */
-void readline_configure(autocomplete_fnc_t autocomplete);
+void readline_configure(autocomplete_fnc_t autocomplete,
+    long_autocomplete_fnc_t long_autocomplete);
 
 
 #endif

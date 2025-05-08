@@ -29,6 +29,7 @@ typedef struct {
 
     // Configuration:
     autocomplete_fnc_t autocomplete;
+    long_autocomplete_fnc_t autocomplete_long;
 
 } string_buffer_t;
 
@@ -48,6 +49,7 @@ bool rl_buffer_is_tty_end(char input);
 char *rl_buffer_get_data(void);
 void rl_buffer_print(int fd);
 void rl_buffer_autocomplete(void);
+void rl_buffer_autocomplete_long(void);
 
 
 #endif

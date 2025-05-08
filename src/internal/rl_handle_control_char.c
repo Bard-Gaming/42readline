@@ -47,7 +47,7 @@ static void handle_tab(void)
     buffer->tabulation_count++;
     if (buffer->tabulation_count < 3)
         return rl_buffer_autocomplete();
-    return rl_buffer_autocomplete();  // replace by autocomplete long
+    return rl_buffer_autocomplete_long();
 }
 
 /*

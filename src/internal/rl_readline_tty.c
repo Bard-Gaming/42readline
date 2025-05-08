@@ -35,6 +35,10 @@ static char *user_end(struct termios *tty)
 */
 static void handle_character(char c, ssize_t *read_len, int fd)
 {
+    string_buffer_t *buffer = rl_buffer_get();
+
+    if (c != '\t')
+        buffer->tabulation_count = 0;
     if (rl_is_control_char(c))
         rl_handle_control_char(c, read_len, fd);
     else
