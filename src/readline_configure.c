@@ -18,9 +18,11 @@
 ** on the result once it doesn't need it
 ** anymore.
 */
+#include <stdio.h>
 static char *default_autocomplete(const char *input)
 {
-    return strdup(input);
+    printf("\nInput: \"%s\"\n", input);
+    return strdup("valgrind");
 }
 
 void readline_configure(autocomplete_fnc_t autocomplete)
