@@ -14,6 +14,7 @@
     #define INITIAL_BUFFER_SIZE (1 << 7)
     #define CLEAR_LINE "\33[2K\r"
     #define INPUT_CURSOR "\033[5 q"
+    #define AUTOCOMPLETE_LONG_CUTOFF 2
 
 
 typedef struct {
