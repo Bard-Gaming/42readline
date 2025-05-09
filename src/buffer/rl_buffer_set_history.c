@@ -12,11 +12,11 @@
 
 static void reset_buffer(string_buffer_t *buffer)
 {
-    if (buffer->count == 0)
+    if (buffer->capacity == 0)
         return;
+    buffer->data[0] = '\0';
     buffer->count = 0;
     buffer->arrow_index = 0;
-    buffer->data[0] = '\0';
 }
 
 /*

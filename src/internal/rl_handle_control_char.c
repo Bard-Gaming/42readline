@@ -22,7 +22,11 @@ static void move_history(int offset)
     string_buffer_t *buffer = rl_buffer_get();
     ssize_t new_index = buffer->history_index + offset;
 
-    buffer->history_index = MAX(0, new_index);
+    if (new_index < 0) {
+        rl_buffer_empty();
+        return;
+    }
+    buffer->history_index = new_index;
     rl_buffer_set_history();
 }
 
