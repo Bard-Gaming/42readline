@@ -39,8 +39,10 @@ static void default_autocomplete_long(UNUSED const char *input)
 ** This should set the buffer to another command
 ** based on the output of this function.
 */
-static char *default_history(UNUSED size_t index)
+static char *default_history(size_t index)
 {
+    if (index == 0)
+        return NULL;
     return strdup("hihihihihi");
 }
 

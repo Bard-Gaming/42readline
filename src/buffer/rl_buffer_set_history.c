@@ -27,9 +27,12 @@ static void reset_buffer(string_buffer_t *buffer)
 void rl_buffer_set_history(void)
 {
     string_buffer_t *buffer = rl_buffer_get();
-    char *history = buffer->history(buffer->history_index);
+    char *history;
     size_t len;
 
+    if (buffer->history_index == 0)
+        return reset_buffer(buffer);
+    history = buffer->history(buffer->history_index);
     if (history == NULL)
         return;
     reset_buffer(buffer);
