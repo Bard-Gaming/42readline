@@ -34,8 +34,20 @@ static void default_autocomplete_long(UNUSED const char *input)
     puts("autocomplete suggestion");
 }
 
-void readline_configure(autocomplete_fnc_t autocomplete,
-    long_autocomplete_fnc_t autocomplete_long)
+/*
+** Default history function.
+** This should set the buffer to another command
+** based on the output of this function.
+*/
+static char *default_history(UNUSED size_t index)
+{
+    return strdup("hihihihihi");
+}
+
+void readline_configure(
+    autocomplete_fnc_t autocomplete,
+    long_autocomplete_fnc_t autocomplete_long,
+    history_fnc_t history)
 {
     string_buffer_t *buffer = rl_buffer_get();
 
@@ -43,4 +55,5 @@ void readline_configure(autocomplete_fnc_t autocomplete,
         autocomplete ?: default_autocomplete;
     buffer->autocomplete_long =
         autocomplete_long ?: default_autocomplete_long;
+    buffer->history = history ?: default_history;
 }

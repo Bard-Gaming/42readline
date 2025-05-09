@@ -16,8 +16,8 @@
     #define CHAR_EOT 4
     #define CONTROL_CHAR_MAX 31  // excludes DEL
 
-    #define MIN(a, b) (a < b ? a : b)
-    #define MAX(a, b) (a > b ? a : b)
+    #define MIN(min, val) (min < val ? min : val)
+    #define MAX(max, val) (max > val ? max : val)
     #define CLAMP(lower, value, upper) MIN(MAX(lower, value), upper)
 
 
