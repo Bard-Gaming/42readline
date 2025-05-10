@@ -21,8 +21,12 @@ static int integer_from_stream(int fd)
     char input;
     int result;
 
-    if (read(fd, &input, 1) != 1 || !('0' <= input && input <= '9'))
+    if (read(fd, &input, 1) != 1)
         return -1;
+    if (!('0' <= input && input <= '9')) {
+        rl_terminal_handle_char(input);
+        return -1;
+    }
     result = input - '0';
     while (read(fd, &input, 1) == 1 && '0' <= input && input <= '9')
         result = result * 10 + input - '0';
@@ -63,8 +67,12 @@ cursor_pos_t rl_terminal_get_cursor_pos(int fd)
     SEND_CODE_FD(fd, CURSOR_REQUEST_POS);
     if (!read_char(fd, '\033'))
         return pos;
-    if (read(fd, &input, 1) != 1 || input != '[')
+    if (read(fd, &input, 1) != 1)
         return pos;
+    if (input != '[') {
+        rl_terminal_handle_char('\033');
+        return pos;
+    }
     pos.row = integer_from_stream(fd);
     pos.col = integer_from_stream(fd);
     return pos;
