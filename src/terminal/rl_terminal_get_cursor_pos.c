@@ -7,6 +7,7 @@
 */
 
 #include <readline/terminal.h>
+#include <stdbool.h>
 
 
 /*
@@ -29,6 +30,26 @@ static int integer_from_stream(int fd)
 }
 
 /*
+** Reads all characters until the given
+** character is reached, or nothing is
+** left to be read. If the given character
+** is found, true is returned.
+** TODO: Skip chars if terminal isn't in
+** use.
+*/
+static bool read_char(int fd, char c)
+{
+    char input;
+
+    while (read(fd, &input, 1) == 1) {
+        if (input == c)
+            return true;
+        rl_terminal_handle_char(input);
+    }
+    return false;
+}
+
+/*
 ** Retrieves the position of the
 ** terminal's cursor.
 ** Returns a negative value if the
@@ -40,7 +61,7 @@ cursor_pos_t rl_terminal_get_cursor_pos(int fd)
     char input;
 
     SEND_CODE_FD(fd, CURSOR_REQUEST_POS);
-    if (read(fd, &input, 1) != 1 || input != '\033')
+    if (!read_char(fd, '\033'))
         return pos;
     if (read(fd, &input, 1) != 1 || input != '[')
         return pos;
