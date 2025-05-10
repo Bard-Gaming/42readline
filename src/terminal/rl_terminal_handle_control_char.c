@@ -76,6 +76,17 @@ static void move_page(terminal_t *terminal, char key)
     move_history(terminal, offset);
 }
 
+static void delete_next(terminal_t *terminal)
+{
+    char input;
+
+    if (read(terminal->fd, &input, 1) != 1)
+        return;
+    if (input != '~')
+        return;
+    rl_buffer_rm_char(terminal->cursor_index);
+}
+
 static void handle_escape_sequence(terminal_t *terminal, char key)
 {
     switch (key) {
@@ -85,6 +96,8 @@ static void handle_escape_sequence(terminal_t *terminal, char key)
     case 'C':
     case 'D':
         return move_cursor(terminal, key == 'C' ? 1 : -1);
+    case '3':
+        return delete_next(terminal);
     case '5':
     case '6':
         return move_page(terminal, key == '5' ? 1 : -1);
