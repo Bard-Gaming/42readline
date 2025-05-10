@@ -19,7 +19,7 @@
 */
 void rl_terminal_autocomplete_long(void)
 {
-    readline_config_t *config= rl_config_get();
+    readline_config_t *config = rl_config_get();
     terminal_t *terminal = rl_terminal_get();
     char *selected_word = rl_get_word(
         rl_buffer_get_data(), terminal->cursor_index
