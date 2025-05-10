@@ -47,6 +47,8 @@ SRC_FILES =	src/readline.c											\
 			src/terminal/rl_terminal_get_cursor_pos.c				\
 			src/terminal/rl_terminal_handle_char.c					\
 			src/terminal/rl_terminal_handle_control_char.c			\
+			src/terminal/rl_terminal_next_word.c					\
+			src/terminal/rl_terminal_prev_word.c					\
 			src/terminal/rl_terminal_readline.c						\
 			src/terminal/rl_terminal_refresh.c						\
 			src/terminal/rl_terminal_set_cursor_pos.c				\

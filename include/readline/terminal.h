@@ -67,6 +67,10 @@ void rl_terminal_handle_control_char(char c);
 void rl_terminal_autocomplete(void);
 void rl_terminal_autocomplete_long(void);
 
+// Navigation:
+void rl_terminal_next_word(void);
+void rl_terminal_prev_word(void);
+
 // Terminal Utility:
 void rl_terminal_refresh(void);
 void rl_terminal_clear(void);

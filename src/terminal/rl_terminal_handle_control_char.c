@@ -87,6 +87,36 @@ static void delete_next(terminal_t *terminal)
     rl_buffer_rm_char(terminal->cursor_index);
 }
 
+static void handle_ctrl_sequence(terminal_t *terminal, char key)
+{
+    switch (key) {
+    case 'A':
+    case 'B':
+        return move_history(terminal, key == 'A' ? 5 : -5);
+    case 'C':
+        return rl_terminal_next_word();
+    case 'D':
+        return rl_terminal_prev_word();
+    }
+}
+
+static void handle_ctrl(terminal_t *terminal)
+{
+    char input;
+
+    if (read(terminal->fd, &input, 1) != 1)
+        return;
+    if (input != ';')
+        return;
+    if (read(terminal->fd, &input, 1) != 1)
+        return;
+    if (input != '5')
+        return;
+    if (read(terminal->fd, &input, 1) != 1)
+        return;
+    handle_ctrl_sequence(terminal, input);
+}
+
 static void handle_escape_sequence(terminal_t *terminal, char key)
 {
     switch (key) {
@@ -96,6 +126,8 @@ static void handle_escape_sequence(terminal_t *terminal, char key)
     case 'C':
     case 'D':
         return move_cursor(terminal, key == 'C' ? 1 : -1);
+    case '1':
+        return handle_ctrl(terminal);
     case '3':
         return delete_next(terminal);
     case '5':
