@@ -15,7 +15,12 @@
 */
 char *rl_get_word_start(const char *input, size_t index)
 {
+    if (index != 0)
+        index--;
+    if (input[index] == '\0')
+        return (char *)(input + index);
     while (index > 0 && rl_is_word_char(input[index]))
         index--;
+    index += !rl_is_word_char(input[index]);
     return (char *)(input + index);
 }

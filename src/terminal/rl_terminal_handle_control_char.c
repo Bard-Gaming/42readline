@@ -20,9 +20,9 @@
 static void handle_tabulation(terminal_t *terminal)
 {
     terminal->tab_count++;
-    /* if (terminal->tab_count < AUTOCOMPLETE_LONG_CUTOFF) */
-    /*     return rl_buffer_autocomplete(); */
-    /* return rl_buffer_autocomplete_long(); */
+    if (terminal->tab_count < AUTOCOMPLETE_LONG_CUTOFF)
+        return rl_terminal_autocomplete();
+    /* return rl_terminal_autocomplete_long(); */
 }
 
 /*
@@ -100,7 +100,7 @@ static void handle_escape_sequence(terminal_t *terminal, char key)
         return delete_next(terminal);
     case '5':
     case '6':
-        return move_page(terminal, key == '5' ? 1 : -1);
+        return move_page(terminal, key);
     }
 }
 

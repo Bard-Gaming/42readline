@@ -31,6 +31,7 @@ bool rl_is_word_char(char c);
 char *rl_get_word(const char *input, size_t index);
 char *rl_get_word_start(const char *input, size_t index);
 char *rl_get_word_end(const char *input);
+size_t rl_get_word_length(const char *input, size_t index);
 
 
 #endif

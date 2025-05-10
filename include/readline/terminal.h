@@ -63,6 +63,9 @@ void rl_terminal_add_char(char c);
 void rl_terminal_handle_char(char c);
 void rl_terminal_handle_control_char(char c);
 
+// User control:
+void rl_terminal_autocomplete(void);
+
 // Terminal Utility:
 void rl_terminal_refresh(void);
 void rl_terminal_clear(void);

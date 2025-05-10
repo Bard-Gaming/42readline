@@ -30,7 +30,16 @@ SRC_FILES =	src/readline.c											\
 			src/buffer/rl_buffer_rm_char.c							\
 			src/buffer/rl_buffer_set.c								\
 			src/config/rl_config_get.c								\
+			src/internal/rl_get_word.c								\
+			src/internal/rl_get_word_end.c							\
+			src/internal/rl_get_word_length.c						\
+			src/internal/rl_get_word_start.c						\
+			src/internal/rl_is_control_char.c						\
+			src/internal/rl_is_word_char.c							\
+			src/internal/rl_readline_file.c							\
+			src/internal/rl_state_get.c								\
 			src/terminal/rl_terminal_add_char.c						\
+			src/terminal/rl_terminal_autocomplete.c					\
 			src/terminal/rl_terminal_cleanup.c						\
 			src/terminal/rl_terminal_clear.c						\
 			src/terminal/rl_terminal_get.c							\
@@ -42,10 +51,6 @@ SRC_FILES =	src/readline.c											\
 			src/terminal/rl_terminal_set_cursor_pos.c				\
 			src/terminal/rl_terminal_set_cursor_col.c				\
 			src/terminal/rl_terminal_setup.c						\
-			src/internal/rl_is_control_char.c						\
-			src/internal/rl_is_word_char.c							\
-			src/internal/rl_readline_file.c							\
-			src/internal/rl_state_get.c								\
 
 OBJ_FILES = $(SRC_FILES:%.c=%.o)
 

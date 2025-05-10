@@ -20,7 +20,7 @@
 */
 static char *default_autocomplete(UNUSED const char *input)
 {
-    return NULL;
+    return strdup("valgrind");
 }
 
 /*
@@ -40,7 +40,7 @@ static void default_autocomplete_long(UNUSED const char *input)
 */
 static char *default_history(size_t index)
 {
-    if (index == 0)
+    if (index != 1)
         return NULL;
     return strdup("hihihihihi");
 }
