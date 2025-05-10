@@ -25,6 +25,7 @@ static void replace_word(terminal_t *terminal, const char *replacement)
 
     if (current_len >= strlen(replacement))
         return;
+    terminal->tab_count = 0;
     terminal->cursor_index =
         rl_get_word_end(rl_buffer_get_data() + terminal->cursor_index) -
         rl_buffer_get_data();

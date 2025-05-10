@@ -23,8 +23,8 @@
 
     // ----------- Cursor ----------- :
     // Style:
-    #define INPUT_CURSOR "\033[5 q"
-    #define NORMAL_CURSOR "\033[1 q"
+    #define CURSOR_LINE "\033[5 q"
+    #define CURSOR_BLOCK "\033[1 q"
 
     // Position:
     #define CURSOR_LEFT "\033[D"
@@ -65,6 +65,7 @@ void rl_terminal_handle_control_char(char c);
 
 // User control:
 void rl_terminal_autocomplete(void);
+void rl_terminal_autocomplete_long(void);
 
 // Terminal Utility:
 void rl_terminal_refresh(void);

@@ -22,7 +22,7 @@ static void handle_tabulation(terminal_t *terminal)
     terminal->tab_count++;
     if (terminal->tab_count < AUTOCOMPLETE_LONG_CUTOFF)
         return rl_terminal_autocomplete();
-    /* return rl_terminal_autocomplete_long(); */
+    return rl_terminal_autocomplete_long();
 }
 
 /*

@@ -40,6 +40,7 @@ SRC_FILES =	src/readline.c											\
 			src/internal/rl_state_get.c								\
 			src/terminal/rl_terminal_add_char.c						\
 			src/terminal/rl_terminal_autocomplete.c					\
+			src/terminal/rl_terminal_autocomplete_long.c			\
 			src/terminal/rl_terminal_cleanup.c						\
 			src/terminal/rl_terminal_clear.c						\
 			src/terminal/rl_terminal_get.c							\
