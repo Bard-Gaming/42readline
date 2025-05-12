@@ -36,7 +36,6 @@ bool readline_is_active(void);
 */
 void readline_free(void);
 
-
 /*
 ** Configure the readline library.
 ** This function configures the readline
