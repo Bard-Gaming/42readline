@@ -8,13 +8,7 @@
 
 #ifndef LIB_READLINE_H
     #define LIB_READLINE_H
-    #include <stdbool.h>
-    #include <stddef.h>
-
-
-typedef char *(*autocomplete_fnc_t)(const char *);
-typedef void (*long_autocomplete_fnc_t)(const char *);
-typedef char *(*history_fnc_t)(size_t);
+    #include <42readline/types.h>
 
 
 /*

@@ -9,7 +9,6 @@
 #ifndef LIB_READLINE_INTERNAL_H
     #define LIB_READLINE_INTERNAL_H
     #include <stdbool.h>
-    #include <termios.h>
     #include <unistd.h>
 
     #define CHAR_DEL 127

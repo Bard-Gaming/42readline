@@ -8,9 +8,8 @@
 
 #ifndef LIB_READLINE_CONFIG_H
     #define LIB_READLINE_CONFIG_H
-    #include <42readline.h>
+    #include <42readline/types.h>
 
-    #define UNUSED __attribute__((unused))
 
 
 typedef struct {
