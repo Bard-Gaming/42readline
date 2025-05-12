@@ -6,7 +6,7 @@
 ** rl_terminal_set_cursor_col
 */
 
-#include <readline/terminal.h>
+#include <42readline/terminal.h>
 #include <stdio.h>
 
 

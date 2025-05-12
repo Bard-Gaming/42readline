@@ -6,10 +6,10 @@
 ** rl_terminal_autocomplete_long
 */
 
-#include <readline/terminal.h>
-#include <readline/internal.h>
-#include <readline/buffer.h>
-#include <readline/config.h>
+#include <42readline/terminal.h>
+#include <42readline/internal.h>
+#include <42readline/buffer.h>
+#include <42readline/config.h>
 #include <stdlib.h>
 
 

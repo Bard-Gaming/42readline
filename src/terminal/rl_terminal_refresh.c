@@ -6,8 +6,8 @@
 ** rl_terminal_refresh
 */
 
-#include <readline/terminal.h>
-#include <readline/buffer.h>
+#include <42readline/terminal.h>
+#include <42readline/buffer.h>
 
 
 /*

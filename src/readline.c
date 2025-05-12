@@ -6,10 +6,10 @@
 ** readline
 */
 
-#include <readline.h>
-#include <readline/terminal.h>
-#include <readline/internal.h>
-#include <readline/buffer.h>
+#include <42readline.h>
+#include <42readline/terminal.h>
+#include <42readline/internal.h>
+#include <42readline/buffer.h>
 
 
 char *readline(int fd)

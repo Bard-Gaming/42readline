@@ -6,7 +6,7 @@
 ** rl_get_word_length
 */
 
-#include <readline/internal.h>
+#include <42readline/internal.h>
 
 
 /*

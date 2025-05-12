@@ -6,7 +6,7 @@
 ** rl_is_word_char
 */
 
-#include <readline/internal.h>
+#include <42readline/internal.h>
 
 
 static const char word_chars[] = {

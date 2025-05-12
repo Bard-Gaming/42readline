@@ -6,7 +6,7 @@
 ** rl_terminal_get_cursor_pos
 */
 
-#include <readline/terminal.h>
+#include <42readline/terminal.h>
 #include <stdbool.h>
 
 

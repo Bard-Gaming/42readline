@@ -6,7 +6,7 @@
 ** rl_get_word_end
 */
 
-#include <readline/internal.h>
+#include <42readline/internal.h>
 
 
 /*

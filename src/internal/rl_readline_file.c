@@ -7,8 +7,8 @@
 */
 
 
-#include <readline/internal.h>
-#include <readline/buffer.h>
+#include <42readline/internal.h>
+#include <42readline/buffer.h>
 
 
 /*

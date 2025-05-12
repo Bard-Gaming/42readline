@@ -6,7 +6,7 @@
 ** rl_terminal_setup
 */
 
-#include <readline/terminal.h>
+#include <42readline/terminal.h>
 
 
 /*

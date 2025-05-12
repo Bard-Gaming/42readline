@@ -6,8 +6,8 @@
 ** readline_free
 */
 
-#include <readline.h>
-#include <readline/buffer.h>
+#include <42readline.h>
+#include <42readline/buffer.h>
 #include <stdlib.h>
 
 

@@ -6,7 +6,7 @@
 ** rl_is_control_char
 */
 
-#include <readline/internal.h>
+#include <42readline/internal.h>
 
 
 /*

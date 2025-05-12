@@ -6,9 +6,9 @@
 ** rl_terminal_prev_word
 */
 
-#include <readline/terminal.h>
-#include <readline/internal.h>
-#include <readline/buffer.h>
+#include <42readline/terminal.h>
+#include <42readline/internal.h>
+#include <42readline/buffer.h>
 
 
 static bool is_word_char(string_buffer_t *buffer, terminal_t *terminal)

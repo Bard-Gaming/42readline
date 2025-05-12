@@ -6,8 +6,8 @@
 ** readline_is_active
 */
 
-#include <readline.h>
-#include <readline/internal.h>
+#include <42readline.h>
+#include <42readline/internal.h>
 
 
 bool readline_is_active(void)

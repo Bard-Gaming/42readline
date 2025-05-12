@@ -6,8 +6,8 @@
 ** readline_configure
 */
 
-#include <readline.h>
-#include <readline/config.h>
+#include <42readline.h>
+#include <42readline/config.h>
 
 
 void readline_configure(

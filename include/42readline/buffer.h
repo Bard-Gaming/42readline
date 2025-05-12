@@ -8,7 +8,7 @@
 
 #ifndef LIB_READLINE_BUFFER_H
     #define LIB_READLINE_BUFFER_H
-    #include <readline.h>
+    #include <stdbool.h>
     #include <stddef.h>
 
     #define AUTOCOMPLETE_LONG_CUTOFF 2

@@ -80,8 +80,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-
-_no_repo:
-	@rm -f LICENSE
-	@rm -f README.md
-	@rm -rf .git

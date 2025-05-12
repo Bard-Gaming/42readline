@@ -6,7 +6,7 @@
 ** readline_config_get
 */
 
-#include <readline/config.h>
+#include <42readline/config.h>
 #include <string.h>
 #include <stdio.h>
 

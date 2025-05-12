@@ -8,7 +8,7 @@
 
 #ifndef LIB_READLINE_CONFIG_H
     #define LIB_READLINE_CONFIG_H
-    #include <readline.h>
+    #include <42readline.h>
 
     #define UNUSED __attribute__((unused))
 

@@ -2,7 +2,8 @@
 ** EPITECH PROJECT, 2025
 ** Project - 42readline
 ** File description:
-** Header file for function
+** Header file used to access
+** the library's public functions
 */
 
 #ifndef LIB_READLINE_H
